@@ -1,0 +1,74 @@
+.smooth {
+	text-shadow: calc(var(--stroke-width) * 1) calc(var(--stroke-width) * 0) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * 0.9239) calc(var(--stroke-width) * 0.3827) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * 0.7071) calc(var(--stroke-width) * 0.7071) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * 0.3827) calc(var(--stroke-width) * 0.9239) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * 0) calc(var(--stroke-width) * 1) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * -0.3827) calc(var(--stroke-width) * 0.9239) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * -0.7071) calc(var(--stroke-width) * 0.7071) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * -0.9239) calc(var(--stroke-width) * 0.3827) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * -1) calc(var(--stroke-width) * 0) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * -0.9239) calc(var(--stroke-width) * -0.3827) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * -0.7071) calc(var(--stroke-width) * -0.7071) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * -0.3827) calc(var(--stroke-width) * -0.9239) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * 0) calc(var(--stroke-width) * -1) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * 0.3827) calc(var(--stroke-width) * -0.9239) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * 0.7071) calc(var(--stroke-width) * -0.7071) 0
+			var(--stroke-color),
+		calc(var(--stroke-width) * 0.9239) calc(var(--stroke-width) * -0.3827) 0
+			var(--stroke-color);
+}
+.strokeText {
+	--stroke-color: #222;
+	--stroke-width: 2px;
+	color: #eee;
+	font-size: 5.635rem;
+	opacity: 0.4;
+}
+
+.ulList {
+	display: flex;
+	justify-content: center;
+	padding: 1rem 0;
+	list-style: none;
+}
+
+.ulList li {
+	position: relative;
+	cursor: pointer;
+	margin: 0 15px; /* Spacing between items */
+	font-size: 1rem; /* Adjust as needed */
+	color: #222; /* Light gray text color */
+	font-weight: 500; /* Bold text */
+}
+
+.ulList li::after {
+	content: "";
+	display: block;
+	height: 2px; /* Line height */
+	background-color: #222; /* Line color */
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -5px; /* Position the line below the text */
+	transform: scaleX(0); /* Initially hidden */
+	transition: transform 0.3s ease; /* Transition for hover effect */
+}
+
+.ulList li:hover::after {
+	transform: scaleX(1); /* Show the line on hover */
+}

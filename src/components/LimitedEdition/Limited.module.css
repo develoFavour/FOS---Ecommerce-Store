@@ -1,0 +1,50 @@
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.row > div {
+	flex: 0 0 calc(100% / 5);
+}
+.button {
+	left: 0.625rem;
+	display: inline-block;
+	width: calc(100% - 1.25rem);
+	padding-right: 0.625rem;
+	padding-left: 0.625rem;
+	white-space: nowrap;
+	line-height: 1.5;
+}
+.button:hover {
+	filter: brightness(0.9);
+}
+.underline {
+	position: relative;
+	display: inline-block;
+}
+.underline::after {
+	width: 3.125rem;
+	content: "";
+	display: block;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 0;
+	max-width: 100%;
+	height: 2px;
+	transition: width 0.28s cubic-bezier(0.47, 0, 0.745, 0.715);
+	background-color: currentColor;
+}
+.underline:hover::after {
+	width: 3.125rem; /* 50px */
+}
+.underline.active::after {
+	width: 30%;
+}
+.colon::after {
+	content: ":";
+	display: block;
+	position: absolute;
+	top: 0;
+	/* right: 1.125rem; */
+}

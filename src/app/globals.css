@@ -2,32 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+/* :root {
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
+} */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+/* @media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
+} */
 
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	background: #eee;
+	font-size: 0.875rem;
+	color: #222;
+	font-weight: 400;
+	line-height: 1.7143;
+	/* overflow: hidden; Use hidden to ensure no scrollbar appears */
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, and Opera */
+	height: 0; /* Chrome, Safari, and Opera */
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+@layer utilities {
+	.text-responsive {
+		font-size: calc(1.5625rem + 3.75vw);
+		line-height: 1.2;
+	}
+}
+@layer utilities {
+	.sm-margin {
+		margin-bottom: 0.5rem;
+	}
+	.text-dash {
+		display: flex;
+		align-items: center;
+		font-size: 0.875rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.text-dash::before {
+		content: "";
+		display: inline-block;
+		width: 1.5rem;
+		height: 2px;
+		background-color: currentColor;
+		margin-right: 0.5rem;
+	}
+}
+@layer utilities {
+	.underline-animation {
+		position: relative;
+		display: inline-block;
+	}
+	.underline-animation::after {
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 2px;
+		bottom: -2px;
+		left: 0;
+		background-color: currentColor;
+		transition: width 0.3s ease;
+	}
+	.group:hover .underline-animation::after {
+		width: 100%;
+	}
+	.from-bg {
+		--tw-gradient-from: #3d3c3c48 var(--tw-gradient-from-position);
+		--tw-gradient-to: rgba(73, 70, 70, 0) var(--tw-gradient-to-position);
+		--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+	}
+}
+@media (max-width: 640px) {
+	.display {
+		display: flex;
+		flex-direction: column;
+	}
+	.padding {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
 }
