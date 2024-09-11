@@ -17,18 +17,28 @@ const Team = () => {
 		"team-12.jpg",
 	];
 	return (
-		<section className="mt-12 max-w-[899px] grid justify-center ml-56 mb-12">
-			<h1 className="p-4"></h1>
-			<div className=" grid grid-cols-6 gap-2 justify-center">
+		<section className="mt-12 mb-12 max-w-[1440px] mx-auto px-4 md:px-8 lg:px-16">
+			<h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">
+				Our Team
+			</h1>
+			<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
 				{teamImages.map((image, index) => (
-					<div key={index} className="mx-2 ">
+					<div
+						key={index}
+						className="relative group overflow-hidden rounded-lg shadow-md"
+					>
 						<Image
 							src={`/assets/${image}`}
 							alt="Team Member"
-							height={200}
 							width={300}
-							className="h-40 w-42 object-cover"
+							height={300}
+							className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
 						/>
+						<div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+							<p className="text-white text-center font-semibold">
+								Team Member {index + 1}
+							</p>
+						</div>
 					</div>
 				))}
 			</div>

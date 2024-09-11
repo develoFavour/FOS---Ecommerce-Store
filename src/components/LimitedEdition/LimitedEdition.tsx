@@ -34,38 +34,63 @@ const LimitedEdition = () => {
 		slidesToScroll: 1,
 		autoplay: true,
 		autoplaySpeed: 6000,
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1,
+				},
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1,
+				},
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
 	};
 
 	return (
-		<section className="flex justify-center flex-col uppercase pt-8 ml-20 max-w-[1140px]">
-			<h1 className={`text-[2.1875rem] text-center ${jostFont.className}`}>
+		<section className="flex justify-center flex-col uppercase pt-8 px-4 md:px-8 lg:px-20 max-w-[1440px] mx-auto">
+			<h1
+				className={`text-3xl md:text-4xl lg:text-[2.1875rem] text-center ${jostFont.className} mb-8`}
+			>
 				Limited <strong>Edition</strong>
 			</h1>
 
 			<Slider
 				{...settings}
-				className={`${Style.row} ${jostFont.className} p-12 gap-4 max-w-[1300px]`}
+				className={`${Style.row} ${jostFont.className} p-4 md:p-8 lg:p-12 gap-4`}
 			>
 				{products.slice(0, 12).map((productItem) => (
 					<div
 						key={productItem.id}
-						className="p-4"
+						className="p-4 cursor-pointer"
 						onClick={() => router.push(`/shop/${productItem.id}`)}
 					>
-						<div className="w-full cursor-pointer overflow-hidden bg-[#f5f4f7] relative group">
+						<div className="w-full overflow-hidden bg-[#f5f4f7] relative group rounded-lg shadow-md transition-transform duration-300 hover:scale-105">
 							<Image
 								src={productItem.images[0]}
-								height={109}
-								width={1200}
+								height={341}
+								width={440}
 								style={{
 									objectFit: "cover",
 									height: "341px",
-									width: "440px",
+									width: "100%",
 								}}
 								alt="banner"
 							/>
 							<button
-								className={`${Style.button} bg-white text-black uppercase absolute bottom-[0.625rem] right-0 font-medium transition-opacity duration-300 opacity-0 group-hover:opacity-100 p-3`}
+								className={`${Style.button} bg-white text-black uppercase absolute bottom-4 right-4 font-medium transition-opacity duration-300 opacity-0 group-hover:opacity-100 p-3 rounded-md shadow-lg`}
 							>
 								Add to Cart
 							</button>
@@ -74,12 +99,16 @@ const LimitedEdition = () => {
 							<span className="flex items-center justify-between text-[#767676] font-normal uppercase text-sm">
 								{productItem.category.replace("-", " ")}{" "}
 								<span className="ml-2">
-									<CiHeart />
+									<CiHeart className="text-2xl hover:text-red-500 transition-colors duration-300" />
 								</span>
 							</span>
-							<h1 className="text-[#222] text-base">{productItem.title}</h1>
-							<span className="text-[1rem]">${productItem.price}</span>
-							<div className="flex items-center justify-between">
+							<h1 className="text-[#222] text-base font-semibold mt-2">
+								{productItem.title}
+							</h1>
+							<span className="text-[1rem] font-bold text-pink-600">
+								${productItem.price}
+							</span>
+							<div className="flex items-center justify-between mt-2">
 								<div className="flex gap-1 items-center">
 									{Array.from({ length: 5 }, (icon, id) => (
 										<FaStar
@@ -91,9 +120,11 @@ const LimitedEdition = () => {
 										/>
 									))}
 								</div>
-								<span>{productItem.rating}+ ratings</span>
+								<span className="text-sm text-gray-600">
+									{productItem.rating}+ ratings
+								</span>
 							</div>
-							<div className="absolute top-0 left-0 bg-white text-[#767676] p-2 rounded-lg mt-2 ml-2">
+							<div className="absolute top-2 left-2 bg-white text-[#767676] p-2 rounded-lg">
 								{productItem.availabilityStatus}
 							</div>
 						</div>
