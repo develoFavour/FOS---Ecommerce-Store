@@ -95,7 +95,42 @@ const LimitedEdition = () => {
 								onClick={(e) => {
 									e.stopPropagation();
 									toast.success(`${productItem.title} added to cart!`);
-									dispatch(increament({ ...productItem, qty: 1 }));
+									dispatch(
+										increament({
+											id: productItem.id,
+											title: productItem.title,
+											images: productItem.images,
+											qty: 1,
+											price: productItem.price,
+											description: "",
+											category: productItem.category,
+											discountPercentage: productItem.discountPercentage,
+											rating: productItem.rating,
+											stock: productItem.stock,
+											tags: [],
+											brand: productItem.brand,
+											sku: productItem.sku,
+											weight: productItem.weight,
+											dimensions: {
+												width: productItem.dimensions.width,
+												height: productItem.dimensions.height,
+												depth: productItem.dimensions.depth,
+											},
+											warrantyInformation: productItem.warrantyInformation,
+											shippingInformation: productItem.shippingInformation,
+											availabilityStatus: productItem.availabilityStatus,
+											reviews: productItem.reviews,
+											returnPolicy: productItem.returnPolicy,
+											minimumOrderQuantity: productItem.minimumOrderQuantity,
+											meta: {
+												createdAt: productItem.meta.createdAt,
+												updatedAt: productItem.meta.updatedAt,
+												barcode: productItem.meta.barcode,
+												qrCode: productItem.meta.qrCode,
+											},
+											thumbnail: productItem.thumbnail,
+										})
+									);
 								}}
 								className={`${Style.button} bg-white text-black uppercase absolute bottom-4 right-4 font-medium transition-opacity duration-300 opacity-0 group-hover:opacity-100 p-3 rounded-md shadow-lg`}
 							>
