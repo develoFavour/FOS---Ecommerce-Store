@@ -12,6 +12,7 @@ import { Jost } from "next/font/google";
 import { CiHeart } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import { increament } from "@/lib/redux/cartSlice";
+import { toast } from "sonner";
 // import { ToastContainer, toast } from "react-toastify";
 
 type Props = {
@@ -90,7 +91,7 @@ const ProductCard = ({ selectedCategory }: Props) => {
 									className={`${Style.button} bg-white text-black uppercase absolute bottom-[0.625rem] right-0 font-medium transition-opacity duration-300 opacity-0 group-hover:opacity-100 p-3`}
 									onClick={(e) => {
 										e.stopPropagation();
-										// toast.success(`${productItem.title} added to cart!`);
+										toast.success(`${productItem.title} added to cart!`);
 										dispatch(
 											increament({
 												id: productItem.id,
@@ -165,7 +166,7 @@ const ProductCard = ({ selectedCategory }: Props) => {
 					</motion.div>
 				))}
 			</AnimatePresence>
-			<div className="flex justify-center items-center">
+			<div className="flex items-center">
 				<span className={`${Style.underline} ${Style.active} mt-3 btn-link`}>
 					Discover More
 				</span>

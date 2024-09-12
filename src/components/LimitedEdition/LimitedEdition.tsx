@@ -11,6 +11,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { increament } from "@/lib/redux/cartSlice";
 
 const jostFont = Jost({
 	weight: "500",
@@ -90,6 +92,11 @@ const LimitedEdition = () => {
 								alt="banner"
 							/>
 							<button
+								onClick={(e) => {
+									e.stopPropagation();
+									toast.success(`${productItem.title} added to cart!`);
+									dispatch(increament({ ...productItem, qty: 1 }));
+								}}
 								className={`${Style.button} bg-white text-black uppercase absolute bottom-4 right-4 font-medium transition-opacity duration-300 opacity-0 group-hover:opacity-100 p-3 rounded-md shadow-lg`}
 							>
 								Add to Cart

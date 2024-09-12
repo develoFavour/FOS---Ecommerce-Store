@@ -62,7 +62,7 @@ const Countdown = ({ days, hours, minutes, seconds }: Props) => {
 	}, []);
 
 	return (
-		<div className="flex gap-2">
+		<div className="flex gap-2 justify-center">
 			<div className="min-w-[6.25rem] text-[1.3rem] font-medium text-center">
 				<span className={`grid`}>{countdown.days} </span>{" "}
 				<span className="text-gray-500 text-base font-bold"> DAYS </span>

@@ -5,14 +5,14 @@ import React from "react";
 
 const CheckoutDetails = () => {
 	const totalPrice = useAppSelector(totalPriceSelector);
-	const vat = 19; // Example VAT value; adjust as needed
+	const vat = 19;
 	const shippingOptions = [
 		{ label: "Free shipping", price: 0 },
 		{ label: "Flat rate: $49", price: 49 },
 		{ label: "Local pickup: $8", price: 8 },
 	];
 
-	const total = totalPrice + vat; // Calculate total including VAT
+	const total = totalPrice + vat;
 
 	return (
 		<div className="uppercase sticky top-0 pb-1">
